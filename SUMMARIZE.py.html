@@ -1,0 +1,96 @@
+#!/usr/bin/env python
+# coding: utf-8
+
+# In[ ]:
+
+
+# Installer le package nltk 
+get_ipython().system('pip install nltk ')
+
+
+# In[ ]:
+
+
+# Installer le package newspaper3K 
+get_ipython().system('pip install newspaper3K ')
+
+
+# In[ ]:
+
+
+# Importer les packages 
+import nltk 
+from newspaper import Article 
+nltk.download('punkt')
+
+
+# In[13]:
+
+
+# Telecharger article via le lien 
+url = "https://www.20minutes.fr/societe/2999927-20210316-coronavirus-pourquoi-gouvernement-favorable-fermeture-cantines"
+
+
+# In[15]:
+
+
+
+article = Article(url)
+
+article.download() # telecharge l'article
+article.parse() # parcourir et lire artcile 
+article.nlp() # extraction des mots - mots clés
+
+
+# In[24]:
+
+
+# titre
+print(article.title)
+
+
+# In[19]:
+
+
+# Auteur de l'article 
+print(article.authors)
+
+
+# In[18]:
+
+
+# acceder à la date de pub  
+print(article.publish_date)
+
+
+# In[19]:
+
+
+# Connaitre l'auteur  
+print(article.authors)
+
+print("-------------------------------")
+
+# titre
+print(article.title)
+
+print("--------------------------------")
+
+# acceder à la date de pub  
+print(article.publish_date)
+
+
+
+# In[20]:
+
+
+# acceder au contenu de l'article 
+print(article.text)
+
+
+# In[23]:
+
+
+# Resumer article 
+print(article.summary)
+
